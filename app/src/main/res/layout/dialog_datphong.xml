@@ -68,11 +68,10 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             fancy:fb_text="Hủy"
-            fancy:fb_defaultColor="@color/colorPrimary"
+            fancy:fb_defaultColor="#00897B"
             fancy:fb_focusColor="#757575"
             fancy:fb_textSize="20dp"
             fancy:fb_borderWidth="2dp"
-            fancy:fb_borderColor="#fff"
             fancy:fb_radius="35dp">
         </mehdi.sakout.fancybuttons.FancyButton>
 
@@ -82,11 +81,10 @@
             android:layout_height="70dp"
             android:layout_marginLeft="150dp"
             fancy:fb_text="Đặt"
-            fancy:fb_defaultColor="@color/colorPrimary"
+            fancy:fb_defaultColor="#E65100"
             fancy:fb_focusColor="#757575"
             fancy:fb_textSize="20dp"
             fancy:fb_borderWidth="2dp"
-            fancy:fb_borderColor="#fff"
             fancy:fb_radius="35dp">
         </mehdi.sakout.fancybuttons.FancyButton>
     </LinearLayout>

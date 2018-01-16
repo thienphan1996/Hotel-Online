@@ -58,7 +58,7 @@ public class AdapterPhong extends ArrayAdapter<Phong> {
             txtTrangThai.setText("Trống");
             txtTrangThai.setTextColor(Color.parseColor("#00C853"));
         }
-        txtGiaPhong.setText(phong.getGiaPhong());
+        txtGiaPhong.setText(phong.getGiaPhong()+"VNĐ");
         txtLoaiPhong.setText("Phòng " + phong.getLoaiPhong());
         return row;
     }

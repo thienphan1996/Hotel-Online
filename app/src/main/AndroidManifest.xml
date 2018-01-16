@@ -12,8 +12,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".Login"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Login" />
         <activity android:name=".ManHinhChao">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DatPhong"></activity>
+        <activity android:name=".DatPhong" />
+        <activity android:name=".Dialog_GoiMonAn" android:theme="@style/Base.Theme.AppCompat.Dialog" ></activity>
     </application>
 
 </manifest>

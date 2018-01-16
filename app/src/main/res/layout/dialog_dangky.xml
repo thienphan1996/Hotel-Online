@@ -6,6 +6,7 @@
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
     android:layout_marginBottom="10dp"
+    android:background="@color/colorPrimary"
     android:gravity="center_vertical|center_horizontal"
     android:orientation="vertical">
 
@@ -93,6 +94,7 @@
                 android:id="@+id/radNam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#fff"
                 android:layout_weight="1"
 
                 android:text="Nam" />
@@ -101,6 +103,7 @@
                 android:id="@+id/radNu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#fff"
                 android:layout_weight="1"
                 android:text="Nữ" />
         </RadioGroup>
