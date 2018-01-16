@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imgDoor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/hotel_open" />
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/txtMaPhong"
+            android:layout_marginLeft="15dp"
+            android:text="01"
+            android:background="@drawable/masophong"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:textSize="10dp"
+            android:layout_alignParentLeft="true"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/txtLoaiPhong"
+        android:text="Phòng lạnh"
+        android:textColor="#000"
+        android:textSize="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/txtGiaPhong"
+        android:textSize="10dp"
+        android:text="50000"
+        android:textColor="#D50000" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtTrangThai"
+        android:text="Trống"
+        android:textSize="10dp"
+        android:textStyle="bold"
+        />
+</LinearLayout>

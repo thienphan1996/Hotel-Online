@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.example.dell.datphongkhachsanonline.Login">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:layout_marginBottom="30dp"
+        app:srcCompat="@drawable/hotel_logo" />
+
+    <com.wrapp.floatlabelededittext.FloatLabeledEditText
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:fletPadding="5dp"
+        app:fletTextAppearance="@drawable/edtcustom">
+
+        <EditText
+            android:id="@+id/edtTaiKhoan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_person_black_24dp"
+            android:drawablePadding="10dp"
+            android:hint="Tên tài khoản"
+            android:inputType="textPersonName"
+            android:paddingBottom="15dp"
+            android:textSize="20dp"></EditText>
+    </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+    <com.wrapp.floatlabelededittext.FloatLabeledEditText
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:fletPadding="5dp"
+        app:fletTextAppearance="@drawable/edtcustom">
+
+        <EditText
+            android:id="@+id/edtMatKhau"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_lock_black_24dp"
+            android:drawablePadding="10dp"
+            android:hint="Mật khẩu"
+            android:inputType="textPassword"
+            android:paddingBottom="15dp"
+            android:textSize="20dp"></EditText>
+    </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+    <CheckBox
+        android:id="@+id/chkNhoMatKhau"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nhớ mật khẩu" />
+
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/btnDangNhap"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        fancy:fb_defaultColor="@color/colorPrimary"
+        fancy:fb_focusColor="#757575"
+        fancy:fb_radius="30dp"
+        fancy:fb_text="Đăng nhập"
+        fancy:fb_textSize="20dp"></mehdi.sakout.fancybuttons.FancyButton>
+
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/btnDangKy"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        fancy:fb_defaultColor="#E65100"
+        fancy:fb_focusColor="#757575"
+        fancy:fb_radius="30dp"
+        fancy:fb_text="Đăng ký"
+        fancy:fb_textSize="20dp"></mehdi.sakout.fancybuttons.FancyButton>
+</LinearLayout>

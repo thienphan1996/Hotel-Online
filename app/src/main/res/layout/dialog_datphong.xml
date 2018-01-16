@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:id="@+id/imgDialogDatPhong"
+        android:src="@drawable/hotel_room_hot"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtDialogLoaiPhong"
+        android:text="Loại phòng"
+        android:textColor="#fff"
+        android:textSize="20dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtDialogGia"
+        android:text="Giá"
+        android:textColor="#fff"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtDialogGiaDem"
+        android:text="Giá đêm"
+        android:textColor="#fff"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtDialogGiaNgay"
+        android:text="Giá ngày"
+        android:textColor="#fff"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtDialogTrangThai"
+        android:text="Trạng thái"
+        android:textColor="#D50000"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btnHuyDialogDatPhong"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            fancy:fb_text="Hủy"
+            fancy:fb_defaultColor="@color/colorPrimary"
+            fancy:fb_focusColor="#757575"
+            fancy:fb_textSize="20dp"
+            fancy:fb_borderWidth="2dp"
+            fancy:fb_borderColor="#fff"
+            fancy:fb_radius="35dp">
+        </mehdi.sakout.fancybuttons.FancyButton>
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btnDialogDatPhong"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="150dp"
+            fancy:fb_text="Đặt"
+            fancy:fb_defaultColor="@color/colorPrimary"
+            fancy:fb_focusColor="#757575"
+            fancy:fb_textSize="20dp"
+            fancy:fb_borderWidth="2dp"
+            fancy:fb_borderColor="#fff"
+            fancy:fb_radius="35dp">
+        </mehdi.sakout.fancybuttons.FancyButton>
+    </LinearLayout>
+</LinearLayout>
