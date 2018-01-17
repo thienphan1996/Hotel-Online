@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
-        android:id="@+id/mnu_HoTro"
+        android:id="@+id/mnu_PhongDaDat"
         android:orderInCategory="100"
-        android:title="Hỗ trợ"
+        android:title="Phòng đã đặt"
         app:showAsAction="never" />
     <item
-        android:id="@+id/mnu_LichSu"
-        android:orderInCategory="100"
-        android:title="Lịch sử"
-        app:showAsAction="never" />
+    android:id="@+id/mnu_HoTro"
+    android:orderInCategory="100"
+    android:title="Hỗ trợ"
+    app:showAsAction="never" />
     <item
         android:id="@+id/mnu_XemPhong"
         android:title="Xem phòng"

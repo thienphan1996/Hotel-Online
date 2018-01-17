@@ -1,5 +1,6 @@
 package com.example.dell.datphongkhachsanonline;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ public class ManHinhChao extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_manhinhchao);
+
 
         lnManHinhChao = findViewById(R.id.lnManHinhChao);
         Animation animation = AnimationUtils.loadAnimation(this,R.anim.in);

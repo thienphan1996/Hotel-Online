@@ -21,8 +21,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DatPhong" />
-        <activity android:name=".Dialog_GoiMonAn" android:theme="@style/Base.Theme.AppCompat.Dialog" ></activity>
+        <activity
+            android:name=".DatPhong"
+            android:label="Đặt phòng"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Dialog_GoiMonAn"
+            android:theme="@style/NoTitleDialog" />
+        <activity
+            android:name=".ThanhToan"
+            android:label="Thanh toán"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".PhongDaDat" android:theme="@style/NoTitleDialog"></activity>
     </application>
 
 </manifest>

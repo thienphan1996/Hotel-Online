@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    android:layout_width="300dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/colorPrimary"
+    tools:context="com.example.dell.datphongkhachsanonline.PhongDaDat">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phòng đã đặt"
+        android:background="@drawable/panel_basic"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:textSize="20dp"
+        android:textColor="#fff"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phòng số"
+            android:textColor="#fff"
+            android:textSize="15dp"
+            android:padding="5dp"/>
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/txtmaSoPhongDaDat"
+            android:textColor="#fff"
+            android:background="@drawable/banan_default"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtPhongDaDat_Gia"
+        android:text="Giá phòng"
+        android:textColor="#fff"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:padding="5dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thời gian đặt"
+        android:textColor="#fff"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:padding="5dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtPhongDaDat_ThoiGian"
+        android:text="Thời gian đặt"
+        android:textColor="#fff"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:padding="5dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="10"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btnHuyDatPhong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="5"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_gravity="center_horizontal"
+            fancy:fb_text="Hủy đặt"
+            fancy:fb_defaultColor="#00897B"
+            fancy:fb_focusColor="#757575"
+            fancy:fb_textSize="20dp"
+            fancy:fb_radius="30dp">
+        </mehdi.sakout.fancybuttons.FancyButton>
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btnTroLaiDatPhong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="5"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_gravity="center_horizontal"
+            fancy:fb_text="Trở lại"
+            fancy:fb_defaultColor="#E65100"
+            fancy:fb_focusColor="#757575"
+            fancy:fb_textSize="20dp"
+            fancy:fb_radius="30dp">
+        </mehdi.sakout.fancybuttons.FancyButton>
+    </LinearLayout>
+</LinearLayout>

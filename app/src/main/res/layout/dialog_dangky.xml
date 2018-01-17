@@ -3,9 +3,6 @@
     xmlns:fancy="http://schemas.android.com/apk/res-auto"
     android:layout_width="350dp"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
-    android:layout_marginBottom="10dp"
     android:background="@color/colorPrimary"
     android:gravity="center_vertical|center_horizontal"
     android:orientation="vertical">
@@ -32,8 +29,12 @@
         android:background="@drawable/edtbasic"
         android:padding="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:ems="10"
         android:hint="Tên tài khoản"
+        android:textColorHint="#fff"
+        android:textColor="#80DEEA"
         android:inputType="textPersonName" />
 
     <EditText
@@ -41,10 +42,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:background="@drawable/edtbasic"
         android:padding="10dp"
         android:ems="10"
         android:hint="Mật khẩu"
+        android:textColorHint="#fff"
+        android:textColor="#80DEEA"
         android:inputType="textPassword" />
 
     <EditText
@@ -53,9 +58,13 @@
         android:layout_height="wrap_content"
         android:background="@drawable/edtbasic"
         android:padding="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Nhập lại mật khẩu"
+        android:textColorHint="#fff"
+        android:textColor="#80DEEA"
         android:inputType="textPassword" />
 
     <EditText
@@ -64,9 +73,13 @@
         android:layout_height="wrap_content"
         android:background="@drawable/edtbasic"
         android:padding="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Họ và tên"
+        android:textColorHint="#fff"
+        android:textColor="#80DEEA"
         android:inputType="textPersonName" />
 
     <EditText
@@ -75,9 +88,13 @@
         android:layout_height="wrap_content"
         android:background="@drawable/edtbasic"
         android:padding="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Năm sinh"
+        android:textColorHint="#fff"
+        android:textColor="#80DEEA"
         android:inputType="numberDecimal" />
 
 
@@ -86,6 +103,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:weightSum="10"
             android:checkedButton="@+id/radioButton">
@@ -112,6 +131,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:weightSum="10"
         android:orientation="horizontal">
 

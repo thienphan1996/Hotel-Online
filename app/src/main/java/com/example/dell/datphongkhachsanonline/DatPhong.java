@@ -24,7 +24,7 @@ import mehdi.sakout.fancybuttons.FancyButton;
 public class DatPhong extends AppCompatActivity {
 
     RadioButton radGia,radGiaDem,radGiaNgay;
-    FancyButton btnHuyDatPhong,btnXacNhanDatPhong,btnBack;
+    FancyButton btnHuyDatPhong,btnXacNhanDatPhong;
     EditText edtGioDat,edtNgayDat;
 
     SQLiteDatabase database = null;
@@ -38,6 +38,7 @@ public class DatPhong extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dat_phong);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         addControls();
         addEvents();
@@ -48,7 +49,6 @@ public class DatPhong extends AppCompatActivity {
         radGia = findViewById(R.id.radGiaPhong);
         radGiaDem = findViewById(R.id.radGiaPhongDem);
         radGiaNgay = findViewById(R.id.radGiaPhongNgay);
-        btnBack = findViewById(R.id.btnBack);
         btnHuyDatPhong = findViewById(R.id.btnHuyDatPhong);
         btnXacNhanDatPhong = findViewById(R.id.btnDatPhong);
         edtGioDat = findViewById(R.id.edtGioDat);
@@ -63,7 +63,7 @@ public class DatPhong extends AppCompatActivity {
         radGiaNgay.setText(Integer.parseInt(phong.getGiaPhong())*4+"đ/ngày");
 
         now = Calendar.getInstance();
-        String strTimeFormat24 = "HH:mm:ss";
+        String strTimeFormat24 = "HH:mm";
         String strDateFormat = "dd/MM/yyyy";
         SimpleDateFormat sdf =null;
         sdf = new SimpleDateFormat(strTimeFormat24);
@@ -74,13 +74,6 @@ public class DatPhong extends AppCompatActivity {
     }
 
     private void addEvents() {
-
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
         btnHuyDatPhong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -135,15 +128,16 @@ public class DatPhong extends AppCompatActivity {
                 {
                     giaPhong = String.valueOf(Integer.parseInt(phong.getGiaPhong())*3);
                 }
-                if (radGia.isChecked())
+                if (radGiaNgay.isChecked())
                 {
-                    giaPhong = String.valueOf(Integer.parseInt(phong.getGiaPhong())*3);
+                    giaPhong = String.valueOf(Integer.parseInt(phong.getGiaPhong())*4);
                 }
                 Cursor cursor = database.rawQuery("SELECT * FROM KhachHang WHERE MaKhachHang='"+maKhachHang+"'",null);
                  while (cursor.moveToNext())
                  {
                      tenKhachHang += cursor.getString(1);
                  }
+                 database.execSQL("DELETE FROM PhongDat WHERE MaKhachHang='"+maKhachHang+"'");
                  database.execSQL("INSERT INTO PhongDat VALUES (null,'"+maPhong+"','"+maKhachHang+"','"+tenKhachHang+"','"+giaPhong+"','"+gioDat+"','"+ngayDat+"')");
                  Toast.makeText(DatPhong.this,"Đã đặt phòng thành công!",Toast.LENGTH_SHORT).show();
                  finish();

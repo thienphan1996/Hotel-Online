@@ -2,6 +2,7 @@ package com.example.dell.datphongkhachsanonline;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -79,10 +80,8 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view) {
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
-                Dialog dialogThanhToan = new Dialog(MainActivity.this);
-                dialogThanhToan.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                dialogThanhToan.setContentView(R.layout.dialog_phongdadat);
-                dialogThanhToan.show();
+                Intent intent = new Intent(MainActivity.this,ThanhToan.class);
+                startActivity(intent);
             }
         });
 
@@ -120,8 +119,8 @@ public class MainActivity extends AppCompatActivity
         txtPanelThucDon = findViewById(R.id.txtPanelThucDon);
         txtVien = findViewById(R.id.txtVien);
 
-        Intent intent = getIntent();
-        maUser = intent.getStringExtra("MAUSER");
+        SharedPreferences preferences = getSharedPreferences("GHINHOMAUSER",MODE_PRIVATE);
+        maUser = preferences.getString("MAUSER","");
 
         int diemTichLuy = 0;
         arrPhongTangTret = new ArrayList<>();
@@ -134,7 +133,11 @@ public class MainActivity extends AppCompatActivity
         ShowAllDataFromDB();
 
 
-        String sub = maUser.substring(0,2);
+        String sub = new String();
+        if (maUser!=null)
+        {
+            sub = maUser.substring(0,2);
+        }
         if (sub.equals("NV"))
         {
             Cursor cursor = database.rawQuery("SELECT * FROM NhanVien WHERE MaNhanVien='"+maUser+"'",null);
@@ -156,18 +159,14 @@ public class MainActivity extends AppCompatActivity
             txtDiemTichLuy.setText(String.valueOf(diemTichLuy));
             txtTenPerson.setText(tenUser);
         }
-
-
-
     }
-
-
 
     private void ShowAllDataFromDB() {
         Cursor cursor = database.rawQuery("SELECT * FROM Phong",null);
         while (cursor.moveToNext())
         {
             Phong phong = new Phong();
+            phong.setMaPhong(cursor.getString(0));
             phong.setLoaiPhong(cursor.getString(1));
             phong.setGiaPhong(cursor.getString(2));
             phong.setTrangThai(cursor.getString(3));
@@ -292,7 +291,7 @@ public class MainActivity extends AppCompatActivity
                 FancyButton btnDialoaDatPhong = dialog.findViewById(R.id.btnDialogDatPhong);
 
 
-                txtDialogLoaiPhong.setText("Loại: Phòng "+arrPhongTangTret.get(i).getLoaiPhong());
+                txtDialogLoaiPhong.setText("Phòng "+arrPhongTangTret.get(i).getLoaiPhong());
                 txtDialogGia.setText("Giá: "+arrPhongTangTret.get(i).getGiaPhong()+"đ/giờ");
                 txtDialogGiaDem.setText("Giá theo đêm: "+String.valueOf(Integer.parseInt(arrPhongTangTret.get(i).getGiaPhong())*3)+"đ/đêm");
                 txtDialogGiaNgay.setText("Giá theo ngày: "+String.valueOf(Integer.parseInt(arrPhongTangTret.get(i).getGiaPhong())*4)+"đ/ngày");
@@ -429,7 +428,14 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.mnu_XemPhong) {
+        if (id == R.id.mnu_PhongDaDat) {
+            Cursor cursor = database.rawQuery("SELECT * FROM PhongDat WHERE MaKhachHang='"+maUser+"'",null);
+            if (cursor.getCount()>0)
+            {
+                Intent intent = new Intent(MainActivity.this,PhongDaDat.class);
+                startActivity(intent);
+            }
+            else Toast.makeText(this,"Bạn chưa đặt phòng!",Toast.LENGTH_SHORT).show();
             return true;
         }
 

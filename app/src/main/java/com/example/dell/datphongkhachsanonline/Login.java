@@ -1,5 +1,6 @@
 package com.example.dell.datphongkhachsanonline;
 
+import android.app.ActionBar;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -33,6 +34,7 @@ public class Login extends AppCompatActivity {
     String DB_PATH_SUFFIX = "/databases/";
     SQLiteDatabase database=null;
 
+    String maUser = new String();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,8 @@ public class Login extends AppCompatActivity {
         XuLySaoChepCSDLTuAssetsVaoHeThong();
         database = openOrCreateDatabase(DATABASE_NAME,MODE_PRIVATE,null);
 
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         addControls();
         addEvents();
@@ -175,7 +179,10 @@ public class Login extends AppCompatActivity {
                 kiemTra = true;
                 Intent intent = new Intent(Login.this,MainActivity.class);
                 String maUser = cursor.getString(3);
-                intent.putExtra("MAUSER",maUser);
+                SharedPreferences sharedPreferences = getSharedPreferences("GHINHOMAUSER",MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("MAUSER",maUser);
+                editor.commit();
                 startActivity(intent);
             }
         }

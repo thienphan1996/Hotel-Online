@@ -1,9 +1,12 @@
 package com.example.dell.datphongkhachsanonline;
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -35,14 +38,14 @@ public class Dialog_GoiMonAn extends AppCompatActivity implements View.OnClickLi
     RoundedImageView imgDialogGoiMon;
     TextView txtTenGoiMon,txtGiaGoiMon;
 
-
     String maThucPham,tenThucPham,giaThucPham,maKhachHang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_dialog__goi_mon_an);
-        setTitle("Gọi món ăn");
+
 
         database = openOrCreateDatabase("dbKhachSan.sqlite",MODE_PRIVATE,null);
 
@@ -58,6 +61,7 @@ public class Dialog_GoiMonAn extends AppCompatActivity implements View.OnClickLi
         imgDialogGoiMon = findViewById(R.id.imgDialogGoiMon);
         txtGiaGoiMon = findViewById(R.id.txtGiaGoiMon);
         txtTenGoiMon = findViewById(R.id.txtTenGoiMon);
+
 
         imgDialogGoiMon.setImageResource(imgDrawable);
         txtGiaGoiMon.setText(giaThucPham+"VNĐ");
@@ -114,7 +118,7 @@ public class Dialog_GoiMonAn extends AppCompatActivity implements View.OnClickLi
                 {
                     AlertDialog.Builder builder = new AlertDialog.Builder(Dialog_GoiMonAn.this);
                     builder.setCancelable(false);
-                    builder.setMessage("Bạn có muốn gọi món"+tenThucPham+" không?");
+                    builder.setMessage("Bạn có muốn gọi món "+tenThucPham+" không?");
                     builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -125,10 +129,21 @@ public class Dialog_GoiMonAn extends AppCompatActivity implements View.OnClickLi
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Button btnDuocChon = findViewById(Integer.parseInt(arrayID.get(arrayID.size()-1)));
-                            String soBan = btnDuocChon.getText().toString();
-                            database.execSQL("INSERT INTO GoiMon VALUES(null,'"+maThucPham+"','"+tenThucPham+"','"+giaThucPham+"','"+maKhachHang+"','"+soBan+"',null)");
-                            Toast.makeText(Dialog_GoiMonAn.this,"Cảm ơn bạn đã gọi món",Toast.LENGTH_SHORT).show();
+                            String soBan = "B"+btnDuocChon.getText().toString();
+                            Cursor cursor = database.rawQuery("SELECT * FROM GoiMon WHERE MaThucPham='"+maThucPham+"'",null);
+                            if (cursor.getCount()>0)
+                            {
+                                cursor.moveToLast();
+                                int soLuong = cursor.getInt(6)+1;
+                                database.execSQL("UPDATE GoiMon SET SoLuong="+soLuong+" WHERE MaThucPham='"+maThucPham+"'");
+                            }
+                            else
+                            {
+                                database.execSQL("INSERT INTO GoiMon VALUES(null,'"+maThucPham+"','"+tenThucPham+"','"+giaThucPham+"','"+maKhachHang+"','"+soBan+"',1)");
+                            }
+                            Toast.makeText(Dialog_GoiMonAn.this,"Cảm ơn bạn đã gọi món "+tenThucPham,Toast.LENGTH_SHORT).show();
                             dialog.cancel();
+                            finish();
                         }
                     });
                     AlertDialog alertDialog = builder.create();

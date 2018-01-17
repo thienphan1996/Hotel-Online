@@ -9,21 +9,6 @@
     android:orientation="vertical"
     android:background="#fff"
     tools:context="com.example.dell.datphongkhachsanonline.DatPhong">
-
-    <mehdi.sakout.fancybuttons.FancyButton
-        android:id="@+id/btnBack"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_gravity="left"
-        android:paddingTop="10dp"
-        fancy:fb_iconResource="@drawable/ic_arrow_back_black_24dp"
-        fancy:fb_defaultColor="#fff"
-        fancy:fb_focusColor="#757575"
-        fancy:fb_text=""
-        fancy:fb_textSize="20dp"
-        fancy:fb_radius="30dp">
-    </mehdi.sakout.fancybuttons.FancyButton>
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
@@ -40,12 +25,14 @@
             android:id="@+id/radGiaPhong"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
             android:layout_weight="1"
             android:text="RadioButton" />
 
         <RadioButton
             android:id="@+id/radGiaPhongDem"
             android:layout_width="150dp"
+            android:textColor="@color/colorPrimary"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="RadioButton" />
@@ -53,6 +40,7 @@
         <RadioButton
             android:id="@+id/radGiaPhongNgay"
             android:layout_width="150dp"
+            android:textColor="@color/colorPrimary"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="RadioButton" />
@@ -64,7 +52,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="Giờ đặt"
-        android:textColor="@android:color/black" />
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary" />
 
     <EditText
         android:id="@+id/edtGioDat"
@@ -80,7 +69,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="Ngày đặt"
-        android:textColor="@android:color/black" />
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary" />
 
     <EditText
         android:id="@+id/edtNgayDat"

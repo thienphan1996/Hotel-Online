@@ -6,19 +6,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_KhuyenMai"
-            android:icon="@drawable/ic_trending_down_black_24dp"
+            android:icon="@drawable/ic_trending_down_white_24dp"
             android:title="Khuyến mãi" />
         <item
             android:id="@+id/nav_DanhGia"
-            android:icon="@drawable/ic_stars_black_24dp"
+            android:icon="@drawable/ic_stars_white_24dp"
             android:title="Đánh giá" />
         <item
             android:id="@+id/nav_DoiMatKhau"
-            android:icon="@drawable/ic_create_black_24dp"
+            android:icon="@drawable/ic_create_white_24dp"
             android:title="Đổi mật khẩu" />
         <item
             android:id="@+id/nav_DangXuat"
-            android:icon="@drawable/ic_reply_black_24dp"
+            android:icon="@drawable/ic_reply_white_24dp"
             android:title="Đăng xuất" />
     </group>
 
@@ -26,7 +26,7 @@
         <menu>
             <item
                 android:id="@+id/nav_GioiThieu"
-                android:icon="@drawable/ic_info_black_24dp"
+                android:icon="@drawable/ic_info_white_24dp"
                 android:title="Giới thiệu" />
             <item
                 android:id="@+id/nav_LienHe"

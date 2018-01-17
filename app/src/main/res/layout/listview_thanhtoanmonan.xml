@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtLvTenMonAn"
+            android:padding="5dp"
+            android:text="Ten món ăn"
+            android:textColor="#000"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bàn"
+            android:layout_marginRight="17dp"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_alignParentRight="true" />
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/txtLvSoBan"
+            android:layout_centerVertical="true"
+            android:text="01"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:background="@drawable/banan_default"
+            android:gravity="center"
+            android:textSize="10dp"
+            android:padding="2dp"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtLvGiaMonAn"
+            android:padding="5dp"
+            android:text="Giá món ăn"
+            android:textColor="#D50000"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Số lượng"
+            android:layout_marginRight="10dp"
+            android:padding="5dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_alignParentRight="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtLvSoLuong"
+            android:layout_centerVertical="true"
+            android:text="1"
+            android:textColor="#D50000"
+            android:textStyle="bold"
+            android:padding="2dp"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimary"/>
+</LinearLayout>

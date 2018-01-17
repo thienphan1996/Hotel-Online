@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fancy="http://schemas.android.com/apk/res-auto"
     android:layout_width="300dp"
-    android:layout_height="630dp"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center_horizontal"
@@ -43,17 +43,17 @@
         android:padding="5dp"
         android:textStyle="bold"/>
     <TableLayout
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:shrinkColumns="*">
 
         <TableRow
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/btnBan01"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:textColor="#fff"
@@ -63,7 +63,7 @@
 
             <Button
                 android:id="@+id/btnBan02"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:textColor="#fff"
@@ -73,7 +73,7 @@
 
             <Button
                 android:id="@+id/btnBan03"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:textColor="#fff"
@@ -83,7 +83,7 @@
 
             <Button
                 android:id="@+id/btnBan04"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:textColor="#fff"
@@ -93,7 +93,7 @@
 
             <Button
                 android:id="@+id/btnBan05"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:textColor="#fff"
@@ -102,7 +102,7 @@
                 android:text="5" />
             <Button
                 android:id="@+id/btnBan06"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:textColor="#fff"
@@ -117,7 +117,7 @@
 
             <Button
                 android:id="@+id/btnBan07"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:textColor="#fff"
@@ -127,7 +127,7 @@
 
             <Button
                 android:id="@+id/btnBan08"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:textColor="#fff"
@@ -137,7 +137,7 @@
 
             <Button
                 android:id="@+id/btnBan09"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:textColor="#fff"
@@ -147,7 +147,7 @@
 
             <Button
                 android:id="@+id/btnBan10"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:textColor="#fff"
@@ -156,7 +156,7 @@
                 android:text="10" />
             <Button
                 android:id="@+id/btnBan11"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:textColor="#fff"
@@ -166,7 +166,7 @@
 
             <Button
                 android:id="@+id/btnBan12"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:textColor="#fff"
@@ -180,7 +180,7 @@
 
             <Button
                 android:id="@+id/btnBan13"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:textColor="#fff"
@@ -190,7 +190,7 @@
 
             <Button
                 android:id="@+id/btnBan14"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:textColor="#fff"
@@ -200,7 +200,7 @@
 
             <Button
                 android:id="@+id/btnBan15"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:textColor="#fff"
@@ -209,7 +209,7 @@
                 android:text="15" />
             <Button
                 android:id="@+id/btnBan16"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:textColor="#fff"
@@ -219,7 +219,7 @@
 
             <Button
                 android:id="@+id/btnBan17"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:textColor="#fff"
@@ -229,7 +229,7 @@
 
             <Button
                 android:id="@+id/btnBan18"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:textColor="#fff"
