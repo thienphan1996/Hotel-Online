@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Phòng đã đặt"
+        android:text="Đặt bàn trước"
         android:background="@drawable/panel_basic"
         android:paddingRight="20dp"
         android:paddingTop="10dp"
@@ -21,22 +21,31 @@
         android:paddingLeft="20dp"
         android:textSize="20dp"
         android:textColor="#fff"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtTenKhachHangDatTruoc"
+        android:text="Tên khách hàng"
+        android:textColor="#fff"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:padding="5dp"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="5dp"
         android:layout_height="wrap_content">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Phòng số"
+            android:text="Bàn số"
             android:textColor="#fff"
-            android:textSize="15dp"
-            android:padding="5dp"/>
+            android:textSize="15dp"/>
         <TextView
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:id="@+id/txtmaSoPhongDaDat"
+            android:id="@+id/txtMaBanDatTruoc"
             android:textColor="#fff"
             android:background="@drawable/banan_default"
             android:gravity="center"
@@ -45,8 +54,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtPhongDaDat_Gia"
-        android:text="Giá phòng"
+        android:id="@+id/txtLoaiBanDatTruoc"
+        android:text="Loại bàn"
         android:textColor="#fff"
         android:textSize="15dp"
         android:textStyle="bold"
@@ -55,19 +64,42 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Thời gian đặt"
+        android:layout_marginBottom="5dp"
         android:textColor="#fff"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        android:padding="5dp"/>
-    <TextView
-        android:layout_width="wrap_content"
+        android:textSize="15dp"/>
+    <EditText
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:id="@+id/txtPhongDaDat_ThoiGian"
-        android:text="Thời gian đặt"
-        android:textColor="#fff"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        android:padding="5dp"/>
+        android:id="@+id/edtGioDatBan"
+        android:background="@drawable/edtbasic"
+        android:hint="Giờ"
+        android:textColorHint="#F48FB1"
+        android:padding="2dp"
+        android:gravity="center"
+        android:textColor="#fff"/>
+    <EditText
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtNgayDatBan"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edtbasic"
+        android:hint="Ngày"
+        android:textColorHint="#F48FB1"
+        android:padding="2dp"
+        android:gravity="center"
+        android:textColor="#fff"/>
+    <EditText
+        android:layout_width="220dp"
+        android:layout_height="100dp"
+        android:id="@+id/edtGhiChuDatBan"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edtbasic"
+        android:hint="Tên sự kiện,ghi chú"
+        android:textColorHint="#FFCC80"
+        android:inputType="textMultiLine"
+        android:gravity="left"
+        android:padding="5dp"
+        android:textColor="#fff"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -76,7 +108,7 @@
         android:orientation="horizontal">
 
         <mehdi.sakout.fancybuttons.FancyButton
-            android:id="@+id/btnTroLaiDatPhong"
+            android:id="@+id/btnTroLaiDatBan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
@@ -92,7 +124,7 @@
         </mehdi.sakout.fancybuttons.FancyButton>
 
         <mehdi.sakout.fancybuttons.FancyButton
-            android:id="@+id/btnHuyDatPhong"
+            android:id="@+id/btnDatBan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -100,7 +132,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:layout_gravity="center_horizontal"
-            fancy:fb_text="Hủy đặt"
+            fancy:fb_text="Đặt bàn"
             fancy:fb_defaultColor="#E65100"
             fancy:fb_focusColor="#757575"
             fancy:fb_textSize="20dp"

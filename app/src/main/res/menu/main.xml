@@ -8,9 +8,9 @@
         android:title="Phòng đã đặt"
         app:showAsAction="never" />
     <item
-    android:id="@+id/mnu_HoTro"
+    android:id="@+id/mnu_BanDaDat"
     android:orderInCategory="100"
-    android:title="Hỗ trợ"
+    android:title="Bàn đã đặt"
     app:showAsAction="never" />
     <item
         android:id="@+id/mnu_XemPhong"

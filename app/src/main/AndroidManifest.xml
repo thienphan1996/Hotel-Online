@@ -32,7 +32,10 @@
             android:name=".ThanhToan"
             android:label="Thanh toán"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".PhongDaDat" android:theme="@style/NoTitleDialog"></activity>
+        <activity
+            android:name=".PhongDaDat"
+            android:theme="@style/NoTitleDialog" />
+        <activity android:name=".DatBan" android:theme="@style/NoTitleDialog"></activity>
     </application>
 
 </manifest>

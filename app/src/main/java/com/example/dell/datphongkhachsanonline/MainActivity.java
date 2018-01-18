@@ -1,6 +1,8 @@
 package com.example.dell.datphongkhachsanonline;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -24,13 +26,16 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.example.dell.adapter.AdapterBanAn;
 import com.example.dell.adapter.AdapterPhong;
 import com.example.dell.adapter.AdapterThucDon;
+import com.example.dell.model.BanAn;
 import com.example.dell.model.Phong;
 import com.example.dell.model.ThucPham;
 
@@ -45,10 +50,11 @@ public class MainActivity extends AppCompatActivity
 
     ViewFlipper vfpPanel;
     RelativeLayout rlViewFlipper,rlDiemTichLuy;
+    LinearLayout lnDatTruoc;
 
     ImageView imgVFPPre,imgVFPNext;
-    TextView txtTenPerson,txtDiemTichLuy,txtPanelThucDon,txtVien;
-    FancyButton btnClickTatCa,btnClickPhong,btnClickThucDon;
+    TextView txtTenPerson,txtDiemTichLuy;
+    FancyButton btnClickPhong,btnClickThucDon;
 
     float toadox1,toadox2;
 
@@ -60,6 +66,9 @@ public class MainActivity extends AppCompatActivity
     ArrayList<ThucPham> arrThucDon;
     AdapterThucDon adapterThucDon;
 
+    GridView gvBanAn;
+    ArrayList<BanAn> arrBanAn;
+    AdapterBanAn adapterBanAn;
 
     String maUser = new String();
     String tenUser = "";
@@ -109,15 +118,16 @@ public class MainActivity extends AppCompatActivity
         vfpPanel.setOutAnimation(getApplicationContext(),R.anim.out);
         vfpPanel.setAutoStart(true);
         vfpPanel.setFlipInterval(4000);
+
         rlViewFlipper = findViewById(R.id.rlViewFlipper);
+        lnDatTruoc = findViewById(R.id.lnDatTruoc);
+
         imgVFPPre = findViewById(R.id.imgVFPPre);
         imgVFPNext = findViewById(R.id.imgVFPNext);
-        btnClickTatCa = findViewById(R.id.btnClickTatCa);
         btnClickPhong = findViewById(R.id.btnClickPhong);
         btnClickThucDon = findViewById(R.id.btnClickThucDon);
-
-        txtPanelThucDon = findViewById(R.id.txtPanelThucDon);
-        txtVien = findViewById(R.id.txtVien);
+        btnClickThucDon.setBackgroundColor(Color.parseColor("#ffffff"));
+        btnClickThucDon.setTextColor(getResources().getColor(R.color.colorPrimary));
 
         SharedPreferences preferences = getSharedPreferences("GHINHOMAUSER",MODE_PRIVATE);
         maUser = preferences.getString("MAUSER","");
@@ -129,7 +139,12 @@ public class MainActivity extends AppCompatActivity
 
         arrThucDon = new ArrayList<>();
         gvThucDon = findViewById(R.id.gvThucDon);
+        gvThucDon.setVisibility(View.GONE);
         adapterThucDon = new AdapterThucDon(MainActivity.this,R.layout.gridview_thucdon,arrThucDon);
+
+        arrBanAn = new ArrayList<>();
+        gvBanAn = findViewById(R.id.gvBanAn);
+        adapterBanAn = new AdapterBanAn(MainActivity.this,R.layout.gridview_banan,arrBanAn);
         ShowAllDataFromDB();
 
 
@@ -172,6 +187,20 @@ public class MainActivity extends AppCompatActivity
             phong.setTrangThai(cursor.getString(3));
             arrPhongTangTret.add(phong);
         }
+        adapterPhong.notifyDataSetChanged();
+        gvListPhong.setAdapter(adapterPhong);
+
+        Cursor cursor2 = database.rawQuery("SELECT * FROM BanAn",null);
+        while (cursor2.moveToNext())
+        {
+            BanAn banAn = new BanAn();
+            banAn.setMaBan(cursor2.getString(1));
+            banAn.setLoaiBan(cursor2.getString(2));
+            banAn.setTrangThai(cursor2.getString(3));
+            arrBanAn.add(banAn);
+        }
+        adapterBanAn.notifyDataSetChanged();
+        gvBanAn.setAdapter(adapterBanAn);
 
         int i = 0;
         int []imgThucPham = new int[38];
@@ -227,9 +256,6 @@ public class MainActivity extends AppCompatActivity
 
         adapterThucDon.notifyDataSetChanged();
         gvThucDon.setAdapter(adapterThucDon);
-
-        adapterPhong.notifyDataSetChanged();
-        gvListPhong.setAdapter(adapterPhong);
     }
 
     private void addEvents() {
@@ -338,6 +364,18 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        gvBanAn.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(MainActivity.this,DatBan.class);
+                BanAn banAn = arrBanAn.get(position);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("BANAN",banAn);
+                intent.putExtra("BUNDLEBANAN",bundle);
+                startActivity(intent);
+            }
+        });
+
         gvThucDon.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -352,43 +390,26 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        btnClickPhong.setVisibility(View.GONE);
-        btnClickThucDon.setVisibility(View.GONE);
-        btnClickTatCa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btnClickThucDon.setVisibility(View.VISIBLE);
-                btnClickTatCa.setVisibility(View.GONE);
-                btnClickPhong.setVisibility(View.GONE);
-                gvListPhong.setVisibility(View.GONE);
-                txtPanelThucDon.setVisibility(View.GONE);
-                txtVien.setVisibility(View.GONE);
-                gvThucDon.setVisibility(View.VISIBLE);
-            }
-        });
-
         btnClickThucDon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnClickPhong.setVisibility(View.VISIBLE);
-                btnClickThucDon.setVisibility(View.GONE);
-                btnClickTatCa.setVisibility(View.GONE);
-                txtPanelThucDon.setVisibility(View.GONE);
-                txtVien.setVisibility(View.GONE);
-                gvListPhong.setVisibility(View.VISIBLE);
-                gvThucDon.setVisibility(View.GONE);
+                lnDatTruoc.setVisibility(View.GONE);
+                gvThucDon.setVisibility(View.VISIBLE);
+                btnClickPhong.setBackgroundColor(Color.parseColor("#ffffff"));
+                btnClickPhong.setTextColor(getResources().getColor(R.color.colorPrimary));
+                btnClickThucDon.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                btnClickThucDon.setTextColor(Color.parseColor("#ffffff"));
             }
         });
         btnClickPhong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnClickTatCa.setVisibility(View.VISIBLE);
-                btnClickThucDon.setVisibility(View.GONE);
-                btnClickPhong.setVisibility(View.GONE);
-                txtPanelThucDon.setVisibility(View.VISIBLE);
-                txtVien.setVisibility(View.VISIBLE);
-                gvThucDon.setVisibility(View.VISIBLE);
-                gvListPhong.setVisibility(View.VISIBLE);
+                gvThucDon.setVisibility(View.GONE);
+                lnDatTruoc.setVisibility(View.VISIBLE);
+                btnClickThucDon.setBackgroundColor(Color.parseColor("#ffffff"));
+                btnClickThucDon.setTextColor(getResources().getColor(R.color.colorPrimary));
+                btnClickPhong.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                btnClickPhong.setTextColor(Color.parseColor("#ffffff"));
             }
         });
     }
@@ -437,6 +458,51 @@ public class MainActivity extends AppCompatActivity
             }
             else Toast.makeText(this,"Bạn chưa đặt phòng!",Toast.LENGTH_SHORT).show();
             return true;
+        }
+        if (id == R.id.mnu_BanDaDat){
+            Cursor cursorBanDaDat = database.rawQuery("SELECT * FROM DatBan WHERE MaKhachHang='"+maUser+"'",null);
+            if (cursorBanDaDat.getCount()==0)
+            {
+                Toast.makeText(MainActivity.this,"Bạn chưa đặt bàn!",Toast.LENGTH_SHORT).show();
+            }
+
+            else {
+                final Dialog dialogBanDaDat = new Dialog(MainActivity.this);
+                dialogBanDaDat.setCancelable(false);
+                dialogBanDaDat.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialogBanDaDat.setContentView(R.layout.dialog_menubandadat);
+
+                TextView txtBanDaDat_TenKhachHang = dialogBanDaDat.findViewById(R.id.txtBanDaDat_TenKhachHang);
+                TextView txtBanDaDat_MaBan = dialogBanDaDat.findViewById(R.id.txtBanDaDat_MaBan);
+                TextView txtBanDaDat_LoaiBan = dialogBanDaDat.findViewById(R.id.txtBanDaDat_Loai);
+                TextView txtBanDaDat_ThoiGian = dialogBanDaDat.findViewById(R.id.txtBanDaDat_ThoiGian);
+                TextView txtBanDaDat_GhiChu = dialogBanDaDat.findViewById(R.id.txtBanDatDat_GhiChu);
+                FancyButton btnTroLaiBanDaDat = dialogBanDaDat.findViewById(R.id.btnTroLaiBanDaDat);
+                FancyButton btnHuyBanDaDat = dialogBanDaDat.findViewById(R.id.btnHuyBanDaDat);
+
+                cursorBanDaDat.moveToLast();
+                String maBan = cursorBanDaDat.getString(1);
+                txtBanDaDat_MaBan.setText(maBan.substring(1,maBan.length()));
+                txtBanDaDat_LoaiBan.setText(cursorBanDaDat.getString(2));
+                txtBanDaDat_TenKhachHang.setText(cursorBanDaDat.getString(4));
+                txtBanDaDat_ThoiGian.setText(cursorBanDaDat.getString(5)+" ngày "+cursorBanDaDat.getString(6));
+                txtBanDaDat_GhiChu.setText(cursorBanDaDat.getString(7));
+                btnTroLaiBanDaDat.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialogBanDaDat.cancel();
+                    }
+                });
+                btnHuyBanDaDat.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        database.execSQL("DELETE FROM DatBan WHERE MaKhachHang='"+maUser+"'");
+                        Toast.makeText(MainActivity.this,"Đã hủy đặt bàn thành công",Toast.LENGTH_SHORT).show();
+                        dialogBanDaDat.cancel();
+                    }
+                });
+                dialogBanDaDat.show();
+            }
         }
 
         return super.onOptionsItemSelected(item);

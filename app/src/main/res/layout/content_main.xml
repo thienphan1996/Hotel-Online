@@ -27,7 +27,7 @@
 
             <ViewFlipper
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="200dp"
                 android:id="@+id/vfpPanel">
                <ImageView
                    android:layout_width="match_parent"
@@ -70,82 +70,67 @@
                 android:layout_centerVertical="true"/>
          </RelativeLayout>
 
-         <RelativeLayout
+         <LinearLayout
              android:layout_width="match_parent"
-             android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="3dp"
-                android:background="@color/colorPrimary"
-                android:layout_centerVertical="true"/>
-
+             android:layout_height="wrap_content"
+             android:orientation="horizontal">
             <mehdi.sakout.fancybuttons.FancyButton
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/btnClickPhong"
+                fancy:fb_text="Đặt trước"
+                fancy:fb_defaultColor="@color/colorPrimary"
+                fancy:fb_focusColor="#757575"
+                fancy:fb_textSize="20dp">
+            </mehdi.sakout.fancybuttons.FancyButton>
+            <mehdi.sakout.fancybuttons.FancyButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:id="@+id/btnClickThucDon"
-                android:layout_centerHorizontal="true"
                 fancy:fb_text="Thực đơn"
                 fancy:fb_defaultColor="@color/colorPrimary"
                 fancy:fb_focusColor="#757575"
-                fancy:fb_textSize="15dp"
-                fancy:fb_radius="50dp">
-            </mehdi.sakout.fancybuttons.FancyButton>
-            <mehdi.sakout.fancybuttons.FancyButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btnClickPhong"
-                android:layout_centerHorizontal="true"
-                fancy:fb_text="Phòng"
-                fancy:fb_defaultColor="@color/colorPrimary"
-                fancy:fb_focusColor="#757575"
-                fancy:fb_textSize="15dp"
-                fancy:fb_radius="50dp">
-            </mehdi.sakout.fancybuttons.FancyButton>
-            <mehdi.sakout.fancybuttons.FancyButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btnClickTatCa"
-                android:layout_centerHorizontal="true"
-                fancy:fb_text="Tất cả"
-                fancy:fb_defaultColor="@color/colorPrimary"
-                fancy:fb_focusColor="#757575"
-                fancy:fb_textSize="15dp"
-                fancy:fb_radius="50dp">
+                fancy:fb_textSize="20dp">
             </mehdi.sakout.fancybuttons.FancyButton>
 
-         </RelativeLayout>
+         </LinearLayout>
 
-         <GridView
-             android:id="@+id/gvTangTret"
+         <LinearLayout
              android:layout_width="match_parent"
-             android:layout_height="610dp"
-             android:layout_marginTop="10dp"
-             android:numColumns="4"
-             android:verticalSpacing="10dp"
-             android:horizontalSpacing="10dp"/>
-         <RelativeLayout
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content">
-            <TextView
+             android:layout_height="match_parent"
+             android:id="@+id/lnDatTruoc"
+             android:orientation="vertical">
+            <GridView
+                android:id="@+id/gvTangTret"
                 android:layout_width="match_parent"
-                android:layout_height="3dp"
-                android:id="@+id/txtVien"
-                android:layout_centerVertical="true"
-                android:background="@color/colorPrimary"/>
-
-            <TextView
-                android:id="@+id/txtPanelThucDon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_height="610dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/textviewdefault"
+                android:numColumns="4"
+                android:verticalSpacing="10dp"
+                android:horizontalSpacing="10dp"/>
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:text="Thực đơn"
+                android:gravity="center"
+                android:text="Bàn ăn"
                 android:textColor="#fff"
-                android:textSize="15dp"
-                android:layout_centerHorizontal="true"/>
-         </RelativeLayout>
+                android:background="@color/colorPrimary"
+                android:textSize="20dp"/>
+            <GridView
+                android:id="@+id/gvBanAn"
+                android:layout_width="match_parent"
+                android:layout_height="900dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:numColumns="3"
+                android:verticalSpacing="10dp"
+                android:horizontalSpacing="20dp"/>
+         </LinearLayout>
+
 
          <GridView
              android:id="@+id/gvThucDon"
