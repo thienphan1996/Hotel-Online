@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    android:layout_width="350dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đổi điểm"
+        android:background="@drawable/panel_basic"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:textSize="20dp"
+        android:textColor="#fff"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Điểm của bạn"
+            android:padding="5dp"
+            android:textColor="#fff" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtDiemCuaBan"
+            android:text="0"
+            android:textColor="#F48FB1"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkedButton="@id/radDoiDiem1">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radDoiDiem1"
+            android:text="50 điểm = Mã 25k"
+            android:textColor="#fff"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radDoiDiem2"
+            android:text="100 điểm = Mã 50k"
+            android:textColor="#fff"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radDoiDiem3"
+            android:text="150 điểm = Mã 75k"
+            android:textColor="#fff"/>
+    </RadioGroup>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="10"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btnHuyDoiDiem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="5"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_gravity="center_horizontal"
+            fancy:fb_text="Trở lại"
+            fancy:fb_defaultColor="#00897B"
+            fancy:fb_focusColor="#757575"
+            fancy:fb_textSize="20dp"
+            fancy:fb_radius="30dp">
+        </mehdi.sakout.fancybuttons.FancyButton>
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btnDoiDiem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="5"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_gravity="center_horizontal"
+            fancy:fb_text="Đổi điểm"
+            fancy:fb_defaultColor="#E65100"
+            fancy:fb_focusColor="#757575"
+            fancy:fb_textSize="20dp"
+            fancy:fb_radius="30dp">
+        </mehdi.sakout.fancybuttons.FancyButton>
+    </LinearLayout>
+</LinearLayout>

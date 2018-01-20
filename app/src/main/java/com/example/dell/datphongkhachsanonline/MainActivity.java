@@ -1,8 +1,7 @@
 package com.example.dell.datphongkhachsanonline;
 
-import android.app.AlertDialog;
+import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -10,8 +9,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -503,11 +500,24 @@ public class MainActivity extends AppCompatActivity
                 });
                 dialogBanDaDat.show();
             }
+        } if (id == R.id.mnu_MaGiamGia){
+            Cursor cursor = database.rawQuery("SELECT * FROM MaGiamGia WHERE MaKhachHang='"+maUser+"'",null);
+             if (cursor.getCount()==0)
+             {
+                 Toast.makeText(MainActivity.this,"Bạn chưa đổi mã giảm giá!",Toast.LENGTH_SHORT).show();
+             }
+            else
+             {
+                 cursor.moveToLast();
+                 String maGiamGia = cursor.getString(2);
+                 Toast.makeText(MainActivity.this,"Mã giảm giá của bạn là: "+maGiamGia,Toast.LENGTH_LONG).show();
+             }
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+    @SuppressLint("WrongConstant")
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -515,21 +525,41 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_KhuyenMai) {
-            // Handle the camera action
-        } else if (id == R.id.nav_DanhGia) {
-
+            this.startActivity(new Intent(this,ManHinhKhuyenMai.class));
+        } else if (id == R.id.nav_DoiDiem) {
+            xuLyDoiDiem();
         } else if (id == R.id.nav_DoiMatKhau) {
-
+            xuLyDoiMatKhau();
+        } else if (id == R.id.nav_DanhGia) {
+            xuLyDanhGia();
         } else if (id == R.id.nav_DangXuat) {
-
+            xuLyDangXuat();
         } else if (id == R.id.nav_GioiThieu) {
-
-        } else if (id == R.id.nav_LienHe) {
-
+            xuLyGioiThieu();
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    private void xuLyGioiThieu() {
+
+    }
+
+    private void xuLyDangXuat() {
+        
+    }
+
+    private void xuLyDanhGia() {
+        
+    }
+
+    private void xuLyDoiMatKhau() {
+        
+    }
+
+    private void xuLyDoiDiem() {
+        this.startActivity(new Intent(this,DoiDiem.class));
     }
 }

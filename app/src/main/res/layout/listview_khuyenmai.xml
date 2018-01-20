@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/imgKhuyenMai"
+        android:adjustViewBounds="true"
+        android:src="@drawable/vfp_hotel_sale"
+        android:scaleType="centerCrop"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtTenKhuyenMai"
+        android:text="Chương trình khuyến mãi 50% nhân dịp tết Nguyên đán"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:paddingTop="5dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtNoiDungKhuyenMai"
+        android:text="Giảm giá 20%"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:gravity="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtThoiGianKhuyenMai"
+        android:text="10/01-12/01/2018"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:paddingTop="5dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorPrimary"/>
+</LinearLayout>

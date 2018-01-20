@@ -13,10 +13,16 @@
     android:title="Bàn đã đặt"
     app:showAsAction="never" />
     <item
+        android:id="@+id/mnu_MaGiamGia"
+        android:orderInCategory="100"
+        android:title="Mã giảm giá"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/mnu_XemPhong"
         android:title="Xem phòng"
         app:showAsAction="always"
         android:icon="@drawable/ic_visibility_white_24dp"/>
+
 
 
 

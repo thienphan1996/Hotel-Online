@@ -31,11 +31,13 @@ public class ThanhToan extends AppCompatActivity {
     ListView lvThanhToanMonAn;
     AdapterListviewMonAnDaDat adapterMonAnDat;
 
-    TextView txtTongHoaDon,txtDiemTichLuy;
-    LinearLayout lnTongHoaDon;
+    TextView txtTongHoaDon,txtDiemTichLuy,txtMaGiamGia,txtSauKhiGiamGia;
+    LinearLayout lnTongHoaDon,lnMaGiamGia;
 
     String maUser = new String();
     int tongHoaDon = 0;
+    int giaSauKhiGiam = 0;
+    String giaTriGiamGia = "";
     SimpleDateFormat spf = null;
 
     @Override
@@ -50,6 +52,8 @@ public class ThanhToan extends AppCompatActivity {
 
         FloatingActionButton floatThanhToan = findViewById(R.id.floatThanhToan);
         final SimpleDateFormat finalSpf = spf;
+
+        //Nút thanh toán
         floatThanhToan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +66,7 @@ public class ThanhToan extends AppCompatActivity {
                         String maKhachHang = arrThanhToanMonAn.get(0).getMaKhachHang();
                         String maBan = arrThanhToanMonAn.get(0).getMaBan();
                         String thoiGianThanhToan = spf.format(calendar.getTime());
-                        database.execSQL("INSERT INTO HoaDon VALUES(null,'"+maKhachHang+"',null,'"+maBan+"','"+tongHoaDon+"','"+thoiGianThanhToan+"')");
+                        database.execSQL("INSERT INTO HoaDon VALUES(null,'"+maKhachHang+"',null,'"+maBan+"','"+giaSauKhiGiam+"','"+thoiGianThanhToan+"')");
                         Toast.makeText(ThanhToan.this,"Đã gửi yêu cầu,quý khách vui lòng đợi nhân viên thanh toán hoặc đến quầy tiếp tân thanh toán trực tiếp",Toast.LENGTH_LONG).show();
                     }
                 });
@@ -87,15 +91,18 @@ public class ThanhToan extends AppCompatActivity {
 
         txtTongHoaDon = findViewById(R.id.txtTongHoaDon);
         txtDiemTichLuy = findViewById(R.id.txtDiemTichLuy);
+        txtMaGiamGia = findViewById(R.id.txtMaGiamGia);
+        txtSauKhiGiamGia = findViewById(R.id.txtSauKhiGiamGia);
+
         lnTongHoaDon = findViewById(R.id.lnTongHoaDon);
+        lnMaGiamGia = findViewById(R.id.lnMaGiamGia);
 
 
+
+        //Set adapter cho listview
         arrThanhToanMonAn = new ArrayList<>();
         lvThanhToanMonAn = findViewById(R.id.lvThanhToanMonAn);
         adapterMonAnDat = new AdapterListviewMonAnDaDat(ThanhToan.this,R.layout.listview_thanhtoanmonan,arrThanhToanMonAn);
-//        SharedPreferences sharedPreferences = getSharedPreferences("GHINHOMAUSER",MODE_PRIVATE);
-//        maUser = sharedPreferences.getString("MAUSER","");
-
         showAllDataOnListView();
 
 
@@ -103,16 +110,36 @@ public class ThanhToan extends AppCompatActivity {
         {
             lnTongHoaDon.setVisibility(View.GONE);
         }
+
+        //Tổng hóa đơn
         for (int i = 0; i < arrThanhToanMonAn.size();i++)
         {
             tongHoaDon += Integer.parseInt(arrThanhToanMonAn.get(i).getGiaThucPham())*Integer.parseInt(arrThanhToanMonAn.get(i).getSoLuong());
         }
 
+        //Tính giá sau khi giảm
+        Cursor cursor = database.rawQuery("SELECT * FROM MaGiamGia",null);
+        cursor.moveToLast();
+        if (cursor.getCount()==0)
+        {
+            lnMaGiamGia.setVisibility(View.GONE);
+            giaSauKhiGiam = tongHoaDon;
+        }
+        else
+        {
+            giaTriGiamGia = cursor.getString(3);
+            txtMaGiamGia.setText(giaTriGiamGia.substring(0,2)+"000 VNĐ");
+            giaSauKhiGiam = tongHoaDon-Integer.parseInt(giaTriGiamGia.substring(0,2)+"000");
+            txtSauKhiGiamGia.setText(giaSauKhiGiam+" VNĐ");
+        }
+
         String strTongHoaDon = tongHoaDon+" VNĐ";
         txtTongHoaDon.setText(strTongHoaDon);
-        int diemTichLuy = tongHoaDon/10000;
+        int diemTichLuy = giaSauKhiGiam/10000;
         txtDiemTichLuy.setText(diemTichLuy+" điểm tích lũy");
-         if (arrThanhToanMonAn.size()>5)
+
+        //Nếu danh sách > 5 phần tử thì heigh = 600dp
+        if (arrThanhToanMonAn.size()>5)
          {
              LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) lvThanhToanMonAn.getLayoutParams();
              layoutParams.height = 600;
@@ -152,7 +179,9 @@ public class ThanhToan extends AppCompatActivity {
                         arrThanhToanMonAn.remove(position);
                         String strTongHoaDon = tongHoaDon+" VNĐ";
                         txtTongHoaDon.setText(strTongHoaDon);
-                        int diemTichLuy = tongHoaDon/10000;
+                        giaSauKhiGiam = tongHoaDon-Integer.parseInt(giaTriGiamGia.substring(0,2)+"000");
+                        txtSauKhiGiamGia.setText(giaSauKhiGiam+" VNĐ");
+                        int diemTichLuy = giaSauKhiGiam/10000;
                         txtDiemTichLuy.setText(diemTichLuy+" điểm tích lũy");
                         adapterMonAnDat.notifyDataSetChanged();
                         if (arrThanhToanMonAn.size()<5)

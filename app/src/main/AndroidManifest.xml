@@ -35,7 +35,15 @@
         <activity
             android:name=".PhongDaDat"
             android:theme="@style/NoTitleDialog" />
-        <activity android:name=".DatBan" android:theme="@style/NoTitleDialog"></activity>
+        <activity
+            android:name=".DatBan"
+            android:theme="@style/NoTitleDialog" />
+        <activity
+            android:name=".ManHinhKhuyenMai"
+            android:label="Danh sách khuyến mãi"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".DoiDiem"
+            android:theme="@style/NoTitleDialog"></activity>
     </application>
 
 </manifest>

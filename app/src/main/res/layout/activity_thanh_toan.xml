@@ -26,52 +26,116 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"></ListView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/lnTongHoaDon"
-                android:orientation="vertical">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tổng hóa đơn: "
-                        android:textColor="@color/colorPrimary"
-                        android:padding="5dp"
-                        android:textSize="20dp"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtTongHoaDon"
-                        android:text="140000"
-                        android:textSize="20dp"
-                        android:textColor="#D50000"
-                        android:layout_marginLeft="5dp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Thanh toán để nhận "
-                        android:textColor="#E65100"
-                        android:textSize="15dp"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/txtDiemTichLuy"
-                        android:text="140000"
-                        android:textSize="15dp"
-                        android:textColor="#E65100"/>
-                </LinearLayout>
+                    android:id="@+id/lnTongHoaDon"
+                    android:orientation="vertical">
 
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="10"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:text="Tổng hóa đơn: "
+                            android:textColor="@color/colorPrimary"
+                            android:padding="5dp"
+                            android:textSize="20dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="6"
+                            android:gravity="right"
+                            android:id="@+id/txtTongHoaDon"
+                            android:text="140000"
+                            android:textSize="20dp"
+                            android:textColor="#D50000"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/lnMaGiamGia"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="10"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:text="Bạn đang có mã giảm giá "
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="15dp"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="6"
+                                android:gravity="right"
+                                android:id="@+id/txtMaGiamGia"
+                                android:text="140000"
+                                android:textSize="20dp"
+                                android:textColor="#D50000"/>
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="@color/colorPrimary"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="10"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:text="Sau khi giảm giá "
+                                android:textColor="@color/colorPrimary"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:textSize="20dp"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="6"
+                                android:gravity="right"
+                                android:id="@+id/txtSauKhiGiamGia"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:text="140000"
+                                android:textSize="20dp"
+                                android:textColor="#D50000"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Thanh toán để nhận "
+                            android:textColor="#E65100"
+                            android:textSize="15dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/txtDiemTichLuy"
+                            android:text="140000"
+                            android:textSize="15dp"
+                            android:textColor="#E65100"/>
+                    </LinearLayout>
+
+
+                </LinearLayout>
             </LinearLayout>
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatThanhToan"
@@ -81,4 +145,4 @@
         android:layout_margin="@dimen/fab_margin"
         app:backgroundTint="#42A5F5"
         android:src="@drawable/pay_cart"/>
-</android.support.design.widget.CoordinatorLayout>
+    </android.support.design.widget.CoordinatorLayout>
