@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    tools:context="com.example.dell.datphongkhachsanonline.DoiMatKhau">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtDoiMatKhauCu"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/textview_doimatkhau"
+        android:hint="Mật khẩu cũ"
+        android:textColorHint="@color/colorPrimary"
+        android:padding="10dp"
+        android:inputType="textPassword"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/textview_doimatkhau"
+        android:id="@+id/edtDoiMatKhauMoi"
+        android:layout_marginTop="10dp"
+        android:textColorHint="@color/colorPrimary"
+        android:hint="Mật khẩu mới"
+        android:padding="10dp"
+        android:inputType="textPassword"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtDoiMatKhauNhapLai"
+        android:background="@drawable/textview_doimatkhau"
+        android:layout_marginTop="10dp"
+        android:hint="Nhập lại mật khẩu mới"
+        android:textColorHint="@color/colorPrimary"
+        android:padding="10dp"
+        android:inputType="textPassword"/>
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/btnXacNhanDoiMatKhau"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        fancy:fb_text="Xác nhận"
+        fancy:fb_defaultColor="@color/colorPrimary"
+        fancy:fb_focusColor="#757575"
+        fancy:fb_textSize="20dp"
+        fancy:fb_radius="30dp">
+    </mehdi.sakout.fancybuttons.FancyButton>
+</LinearLayout>

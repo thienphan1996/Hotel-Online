@@ -1,7 +1,9 @@
 package com.example.dell.datphongkhachsanonline;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -9,6 +11,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -71,6 +74,8 @@ public class MainActivity extends AppCompatActivity
     String tenUser = "";
 
     Dialog dialog;
+
+    int touchBack = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -255,6 +260,8 @@ public class MainActivity extends AppCompatActivity
         gvThucDon.setAdapter(adapterThucDon);
     }
 
+
+
     private void addEvents() {
         rlViewFlipper.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -438,6 +445,8 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -512,6 +521,9 @@ public class MainActivity extends AppCompatActivity
                  String maGiamGia = cursor.getString(2);
                  Toast.makeText(MainActivity.this,"Mã giảm giá của bạn là: "+maGiamGia,Toast.LENGTH_LONG).show();
              }
+        } if (id == R.id.mnu_XemPhong){
+            Intent intent = new Intent(MainActivity.this,XemKhachSan.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
@@ -544,22 +556,55 @@ public class MainActivity extends AppCompatActivity
 
 
     private void xuLyGioiThieu() {
-
+        this.startActivity(new Intent(this,GioiThieu.class));
     }
 
     private void xuLyDangXuat() {
-        
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setMessage("Bạn có muốn đăng xuất không?");
+        builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.show();
     }
 
     private void xuLyDanhGia() {
-        
+        this.startActivity(new Intent(this,ManHinhDanhGia.class));
     }
 
     private void xuLyDoiMatKhau() {
-        
+        this.startActivity(new Intent(this,DoiMatKhau.class));
     }
 
     private void xuLyDoiDiem() {
         this.startActivity(new Intent(this,DoiDiem.class));
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (touchBack==1)
+        {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        }
+        else if(keyCode == KeyEvent.KEYCODE_BACK)
+         {
+             touchBack++;
+             Toast.makeText(MainActivity.this,"Nhấn lần nữa để thoát ứng dụng",Toast.LENGTH_SHORT).show();
+         }
+        return true;
     }
 }

@@ -42,8 +42,24 @@
             android:name=".ManHinhKhuyenMai"
             android:label="Danh sách khuyến mãi"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".DoiDiem"
-            android:theme="@style/NoTitleDialog"></activity>
+        <activity
+            android:name=".DoiDiem"
+            android:theme="@style/NoTitleDialog" />
+        <activity
+            android:name=".DoiMatKhau"
+            android:label="Đổi mật khẩu"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".GioiThieu"
+            android:label="Giới thiệu"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".XemKhachSan"
+            android:label="Một số hình ảnh"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".ManHinhDanhGia"
+            android:label="Đánh giá"
+            android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>

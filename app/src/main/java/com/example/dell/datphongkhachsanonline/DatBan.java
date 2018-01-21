@@ -59,33 +59,40 @@ public class DatBan extends AppCompatActivity {
         btnDatBan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(DatBan.this);
-                builder.setMessage("Bạn có muốn đặt bàn số "+banAn.getMaBan().substring(1,banAn.getMaBan().length())+" không?");
-                builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String maBan = banAn.getMaBan();
-                        String loaiBan = banAn.getLoaiBan();
-                        String maKhachHang = maUser;
-                        String tenKhachHang = tenUser;
-                        String gioDat = edtGioDatBan.getText().toString();
-                        String ngayDat = edtNgayDatBan.getText().toString();
-                        String ghiChu = edtGhiChu.getText().toString();
-                        database.execSQL("DELETE FROM DatBan WHERE MaKhachHang='"+maKhachHang+"'");
-                        database.execSQL("INSERT INTO DatBan VALUES(null,'"+maBan+"','"+loaiBan+"','"+maKhachHang+"','"+tenKhachHang+"','"+gioDat+"','"+ngayDat+"','"+ghiChu+"')");
-                        Toast.makeText(getApplicationContext(),"Quý khách đã đặt trước bàn "+maBan.substring(1,maBan.length())+",cảm ơn quý khách!",Toast.LENGTH_LONG).show();
-                        finish();
-                    }
-                });
-                builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-                AlertDialog dialog = builder.create();
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                dialog.show();
+                if (banAn.getTrangThai().equals("Trống"))
+                {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(DatBan.this);
+                    builder.setMessage("Bạn có muốn đặt bàn số "+banAn.getMaBan().substring(1,banAn.getMaBan().length())+" không?");
+                    builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            String maBan = banAn.getMaBan();
+                            String loaiBan = banAn.getLoaiBan();
+                            String maKhachHang = maUser;
+                            String tenKhachHang = tenUser;
+                            String gioDat = edtGioDatBan.getText().toString();
+                            String ngayDat = edtNgayDatBan.getText().toString();
+                            String ghiChu = edtGhiChu.getText().toString();
+                            database.execSQL("DELETE FROM DatBan WHERE MaKhachHang='"+maKhachHang+"'");
+                            database.execSQL("INSERT INTO DatBan VALUES(null,'"+maBan+"','"+loaiBan+"','"+maKhachHang+"','"+tenKhachHang+"','"+gioDat+"','"+ngayDat+"','"+ghiChu+"')");
+                            Toast.makeText(getApplicationContext(),"Quý khách đã đặt trước bàn "+maBan.substring(1,maBan.length())+",cảm ơn quý khách!",Toast.LENGTH_LONG).show();
+                            finish();
+                        }
+                    });
+                    builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    dialog.show();
+                }
+                else {
+                    Toast.makeText(DatBan.this,"Bàn đã có người đặt mời bạn chọn bàn khác!",Toast.LENGTH_SHORT).show();
+                    finish();
+                }
             }
         });
 
