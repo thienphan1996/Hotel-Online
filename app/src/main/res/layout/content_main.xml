@@ -135,7 +135,7 @@
          <GridView
              android:id="@+id/gvThucDon"
              android:layout_width="match_parent"
-             android:layout_height="1900dp"
+             android:layout_height="1050dp"
              android:layout_marginTop="10dp"
              android:gravity="center"
              android:horizontalSpacing="10dp"

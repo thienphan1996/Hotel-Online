@@ -227,22 +227,6 @@ public class MainActivity extends AppCompatActivity
         imgThucPham[18] = R.drawable.thucdon_mixaohaisan;
         imgThucPham[19] = R.drawable.thucdon_goitom;
         imgThucPham[20] = R.drawable.thucdon_lauhaisan;
-        imgThucPham[21] = R.drawable.thucdon_ngeuhaprung;
-        imgThucPham[22] = R.drawable.thucdon_tomnuongsate;
-        imgThucPham[23] = R.drawable.thucdon_sting;
-        imgThucPham[24] = R.drawable.thucdon_pepsi;
-        imgThucPham[25] = R.drawable.thucdon_coca;
-        imgThucPham[26] = R.drawable.thucdon_nuoctangluc;
-        imgThucPham[27] = R.drawable.thucdon_nuocsuoi;
-        imgThucPham[28] = R.drawable.thucdon_biatiger;
-        imgThucPham[29] = R.drawable.thucdon_biasaigon;
-        imgThucPham[30] = R.drawable.thucdon_biaheineken;
-        imgThucPham[31] = R.drawable.thucdon_bialague;
-        imgThucPham[32] = R.drawable.thucdon_mirinda;
-        imgThucPham[33] = R.drawable.thucdon_traxanh;
-        imgThucPham[34] = R.drawable.thucdon_cafe;
-        imgThucPham[35] = R.drawable.thucdon_cafesua;
-        imgThucPham[36] = R.drawable.thucdon_camep;
         Cursor cursor1 = database.rawQuery("SELECT * FROM ThucPham",null);
         while (cursor1.moveToNext())
         {

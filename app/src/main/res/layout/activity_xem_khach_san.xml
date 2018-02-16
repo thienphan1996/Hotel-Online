@@ -14,37 +14,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:src="@drawable/hotel_img_intro1"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"/>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:src="@drawable/hotel_img_intro4"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:src="@drawable/hotel_img_intro5"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:src="@drawable/hotel_img_intro6"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:src="@drawable/hotel_img_intro8"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"/>
         </LinearLayout>
     </ScrollView>
 
